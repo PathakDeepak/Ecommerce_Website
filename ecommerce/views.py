@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .Forms.form import ContactForm, LoginForm
+from django.contrib.auth import authenticate, login
 
 
 
@@ -43,6 +44,16 @@ def login_page(request):
     print(request.user.is_authenticated)
     if form.is_valid():
         print(form.cleaned_data)
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(request, username=username, password=password)
+        print(request.user.is_authenticated)
+        if user is not None:
+            print(request.user.is_authenticated)
+            login(request, user)
+            return redirect("/login")
+        else:
+            print("Error")
     return render(request, "auth/login_page.html", context)
 
 def register_page(request):
