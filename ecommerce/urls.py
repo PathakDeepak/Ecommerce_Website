@@ -20,30 +20,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 
-from .views import home_page, contact_page, about_page, login_page,register_page
-# from products.views import (
-#     ProductListView,
-#     product_list_view,
-#     product_detail_view,
-#     ProductDetailView,
-#     ProductDetailSlugView,
-# )
+from .views import home_page, contact_page, about_page, login_page
 
 urlpatterns = [
     path('', home_page, name='home'),
     path('about', about_page, name='about'),
     path('contact', contact_page, name='contact'),
     path('login', login_page),
-    path('register', register_page),
-    path('products', include('products.urls')),
-    # path('products', ProductListView.as_view()),
-    # path('products-fbv', product_list_view),
-    # # path('products/(?P<pk>\d+)', ProductDetailView.as_view()),
-    # # path('products-fbv/(?P<pk>\d+)', product_detail_view),
-    # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    #
-    # url(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
     path('admin/', admin.site.urls),
 ]
 
