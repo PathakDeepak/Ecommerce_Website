@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from django.views.generic import TemplateView
 
 from .views import home_page, contact_page, about_page, login_page
 
@@ -27,7 +28,12 @@ urlpatterns = [
     path('about', about_page, name='about'),
     path('contact', contact_page, name='contact'),
     path('login', login_page),
+<<<<<<< HEAD
     path('products', include("products.urls")),
+=======
+    path('bootstrap', TemplateView.as_view(template_name='bootstrap/example.html')),
+    path('products/', include('products.urls')),
+>>>>>>> LatestBranch
     path('admin/', admin.site.urls),
 ]
 
