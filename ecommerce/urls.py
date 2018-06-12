@@ -28,8 +28,12 @@ urlpatterns = [
     path('about', about_page, name='about'),
     path('contact', contact_page, name='contact'),
     path('login', login_page),
+<<<<<<< HEAD
+    path('products', include("products.urls")),
+=======
     path('bootstrap', TemplateView.as_view(template_name='bootstrap/example.html')),
     path('products/', include('products.urls')),
+>>>>>>> LatestBranch
     path('admin/', admin.site.urls),
 ]
 
