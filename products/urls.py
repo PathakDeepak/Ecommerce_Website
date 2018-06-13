@@ -14,11 +14,12 @@ from .views import (
 
 urlpatterns = [
     path('', ProductListView.as_view()),
-    path('products-fbv', product_list_view),
-    # path('(?P<pk>\d+)', ProductDetailView.as_view()),
-    # path('(?P<pk>\d+)', product_detail_view),
-    url(r'^(?P<pk>\d+)/$', ProductDetailView.as_view()),
     url(r'^(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view(), name='details'),
 
-    url(r'^(?P<pk>\d+)/$', product_detail_view),
+
+    #path('products-fbv', product_list_view),
+    # path('(?P<pk>\d+)', ProductDetailView.as_view()),
+    # path('(?P<pk>\d+)', product_detail_view),
+    #url(r'^(?P<pk>\d+)/$', ProductDetailView.as_view()),
+    #url(r'^(?P<pk>\d+)/$', product_detail_view),
     ]
