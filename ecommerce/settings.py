@@ -22,6 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0)$p32m(@h_^pr_qggkqd294ug&a_720gg3q%x6)5^5tx_8qt2'
 
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,8 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #our apps
+    'carts',
+    'accounts',
+    'orders',
     'products',
+    'billing',
     'search',
+    'tags',
+
 ]
 
 MIDDLEWARE = [
@@ -53,6 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGOUT_REDIRECT_URL = '/login'
 ROOT_URLCONF = 'ecommerce.urls'
 
 TEMPLATES = [

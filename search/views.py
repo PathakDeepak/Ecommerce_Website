@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from django.views.generic import ListView
 
 from products.models import Product
@@ -13,7 +14,10 @@ from products.models import Product
 def search_product_view(request):
     query = request.GET.get('q')
     if query is not None:
-        queryset = Product.objects.filter(title__icontains=query)
+        # lookups = Q(title__icontains=query) | Q(description__icontains=query)
+        # queryset = Product.objects.filter(lookups).distinct()
+        queryset = Product.objects.search(query)
+        print(queryset.query)
     else:
         queryset = Product.objects.none()
     context = {
